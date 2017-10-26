@@ -48,9 +48,9 @@ spikeSizeMS: 1.5
 
 # NN DETECTION
 # Threshold for spike event detection
-nnThreshdold: 0.1
+nnThreshdold: 0.5
 # Threshold for clear/collision detection
-nnThreshdoldCol: 0.1
+nnThreshdoldCol: 0.75
 
 # FILTERING
 # Order of Butterworth filter
@@ -70,7 +70,7 @@ triagePercent: 0.01
 # Num. of clusters
 coresetK: 10
 # distance threshold
-coresetTh: 0.9
+coresetTh: 0.95
 
 # CLUSTERING
 # Masking threshold
@@ -80,12 +80,12 @@ kSplit: 5
 
 # TEMPLATE MERGING
 # threshold for template merge
-tMergeTh: [0.85, 0.5]
+tMergeTh: [0.8, 0.7]
 
 # DECONVOLUTION
 deconvGPU: 1
 deconvRank: 3
-deconvTh: 6
+deconvTh: 4
 deconvLam: 20
 
 # Neural network parameters
@@ -100,12 +100,12 @@ neural_network:
   # NN architecture
   # num. of filters in each layer
   #nnNFilters: [10, 35, 70]
-  nnNFilters: [64, 128, 128]
+  nnNFilters: [16, 8, 1]
   # temporal filter size
   #nnFilterSize: [31, 31, 5]
-  nnFilterSize: [81, 1, 5]
+  nnFilterSize: [31, 1, 1]  
   
-  nnTriageFilterSize: [64, 128]
+  nnTriageFilterSize: [8, 16]
   
   # NN training
   # train nn and save
