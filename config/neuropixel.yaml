@@ -6,7 +6,7 @@ root: /users/Edu/data/ucl-neuropixel
 # binary recording filename
 filename: neuropixel.bin
 # channel geometry file name
-geomFile: ej49_geometry1.txt
+geomFile: channel_positions.npy
 # save spikeTrain
 spikeTrainName: ej49_spikeTrain1_1.csv
 # SAMPLE CONFIGURATION FILE
@@ -17,7 +17,7 @@ dtype: int16
 # recording rate (in Hz)
 srate: 20000
 # number of channels in the recording
-nChan: 49
+nChan: 374
 # spatial radius of spikes
 spatialRadius: 70
 
