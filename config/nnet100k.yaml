@@ -8,7 +8,7 @@ filename: sample_100k.bin
 # channel geometry file name
 geomFile: ej49_geometry1.txt
 # save spikeTrain
-spikeTrainName: ej49_spikeTrain1_1.csv
+spikeTrainName: results.csv
 # SAMPLE CONFIGURATION FILE
 
 # RECORDING
