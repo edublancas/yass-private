@@ -21,3 +21,26 @@ plt.plot(whiten[:1000])
 plt.plot(whiten[-1000:])
 
 plt.show()
+
+old = np.load('old.npy')
+new = np.load('new.npy')
+
+old.shape
+new.shape
+
+plt.plot(old[-100:])
+plt.show()
+
+plt.plot(new[-100:])
+plt.show()
+
+
+new_filtered = np.fromfile('filtered.bin').reshape((100000,7))
+new_filtered.shape
+
+old_filtered = np.fromfile('old_filrered.bin').reshape((100120,7))
+old_filtered.shape
+
+plt.plot(new_filtered[:100])
+plt.plot(old_filtered[:100])
+plt.show()
