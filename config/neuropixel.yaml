@@ -4,7 +4,7 @@
 # data root folder
 root: /users/Edu/data/ucl-neuropixel
 # binary recording filename
-filename: neuropixel.bin
+filename: sample.bin
 # channel geometry file name
 geomFile: channel_positions.npy
 # save spikeTrain
@@ -15,7 +15,7 @@ spikeTrainName: ej49_spikeTrain1_1.csv
 # precision of the recording (e.g.'int16')
 dtype: int16
 # recording rate (in Hz)
-srate: 20000
+srate: 30000
 # number of channels in the recording
 nChan: 374
 # spatial radius of spikes
@@ -44,7 +44,7 @@ whitenBatchwise: 0
 # number of features for dimension reduction
 nFeat: 3
 # temporal length of wavforms in ms
-spikeSizeMS: 1.5
+spikeSizeMS: 2.0
 
 # NN DETECTION
 # Threshold for spike event detection
