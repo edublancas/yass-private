@@ -1,7 +1,6 @@
 """
 http://scipy-cookbook.readthedocs.io/items/ButterworthBandpass.html
 """
-
 import numpy as np
 from scipy.signal import butter, lfilter
 
@@ -26,7 +25,7 @@ lowcut = 500.0
 highcut = 1250.0
 
 # Filter a noisy signal.
-T = 100000
+T = 1000
 nsamples = int(T * fs)
 t = np.linspace(0, T, nsamples, endpoint=False)
 a = 0.02
