@@ -20,14 +20,17 @@ cfg = yass.Config.from_yaml('threshold100k.yaml')
 pp = Preprocessor(cfg)
 score, spike_index_clear, spike_index_collision = pp.process()
 
+score.shape, spike_index_clear.shape, spike_index_collision.shape
+
 
 mp = Mainprocessor(cfg, score, spike_index_clear, spike_index_collision)
 spike_train_clear, spike_index_collision = mp.mainProcess()
+
+spike_train_clear.shape, spike_index_collision.shape
 
 
 dc = Deconvolution(cfg, np.transpose(mp.templates, [1, 0, 2]),
                    spike_index_collision)
 spike_train = dc.fullMPMU()
 
-spike_train
 spike_train.shape
