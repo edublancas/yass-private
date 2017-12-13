@@ -20,4 +20,8 @@ yass.set_config('config/threshold100k.yaml')
 # yass.set_config('config/threshold.yaml')
 
 # run preprocessor
-spike_index, scores = preprocess.run()
+scores, spike_index_clear, spike_index_collision = preprocess.run()
+
+scores.shape
+spike_index_clear.shape
+spike_index_collision.shape
