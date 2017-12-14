@@ -13,9 +13,14 @@ from yass.preprocessing import Preprocessor
 from yass.mainprocess import Mainprocessor
 from yass.deconvolute import Deconvolution
 
+SAMPLE = False
+
 assert yass.__version__ == '0.3'
 
-cfg = yass.Config.from_yaml('threshold100k.yaml')
+if SAMPLE:
+    cfg = yass.Config.from_yaml('threshold100k.yaml')
+else:
+    cfg = yass.Config.from_yaml('threshold.yaml')
 
 pp = Preprocessor(cfg)
 score, spike_index_clear, spike_index_collision = pp.process()
