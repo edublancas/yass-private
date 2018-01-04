@@ -1,3 +1,6 @@
+
+from yass.batch import vectorize_parameter
+
 @vectorize_parameter('a')
 def add(a, b, c):
     return a + b + c

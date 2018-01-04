@@ -16,7 +16,8 @@ groups = geometry.make_channel_groups(n_channels, neighbors, geom)
 
 groups
 
-neighbors = np.where(neighbors[0])[0]
+# get neighbors for some channel
+np.where(neighbors[10])
 
 geometry.order_channels_by_distance(1, np.array([5, 6, 7]), geom)
 

@@ -1,7 +1,7 @@
 # batch-processing refactoring
 """
 cd /Users/Edu/dev/lab/yass
-git checkout batch-processing
+git checkout dev
 cd /Users/Edu/dev/lab/private-yass/the-great-refactor
 source activate yass
 ipython
@@ -18,7 +18,7 @@ SAMPLE = False
 assert yass.__version__ == '0.4dev'
 
 # configure logging module to get useful information
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 # set yass configuration parameters
 if SAMPLE:
@@ -30,7 +30,6 @@ else:
 score, spike_index_clear, spike_index_collision = preprocess.run()
 
 score.shape, spike_index_clear.shape, spike_index_collision.shape
-
 
 # run processor
 spike_train, spikes_left, templates = process.run(score, spike_index_clear,
