@@ -13,7 +13,8 @@ from yass import preprocess
 from yass import process
 from yass import deconvolute
 
-SAMPLE = False
+SAMPLE = True
+NNET = True
 
 assert yass.__version__ == '0.4dev'
 
@@ -22,9 +23,9 @@ logging.basicConfig(level=logging.DEBUG)
 
 # set yass configuration parameters
 if SAMPLE:
-    yass.set_config('threshold100k.yaml')
+    yass.set_config('nnet100k.yaml' if NNET else 'threshold100k.yaml')
 else:
-    yass.set_config('threshold.yaml')
+    yass.set_config('nnet.yaml' if NNET else 'threshold.yaml')
 
 # run preprocessor
 score, spike_index_clear, spike_index_collision = preprocess.run()

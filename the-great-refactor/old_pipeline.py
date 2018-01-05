@@ -13,14 +13,17 @@ from yass.preprocessing import Preprocessor
 from yass.mainprocess import Mainprocessor
 from yass.deconvolute import Deconvolution
 
-SAMPLE = False
+SAMPLE = True
+NNET = True
 
 assert yass.__version__ == '0.3'
 
 if SAMPLE:
-    cfg = yass.Config.from_yaml('threshold100k.yaml')
+    filename = 'nnet100k.yaml' if NNET else 'threshold100k.yaml'
+    cfg = yass.Config.from_yaml(filename)
 else:
-    cfg = yass.Config.from_yaml('threshold.yaml')
+    filename = 'nnet.yaml' if NNET else 'threshold.yaml'
+    cfg = yass.Config.from_yaml(filename)
 
 pp = Preprocessor(cfg)
 score, spike_index_clear, spike_index_collision = pp.process()
