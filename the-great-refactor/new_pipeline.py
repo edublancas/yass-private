@@ -1,7 +1,7 @@
 # batch-processing refactoring
 """
 cd /Users/Edu/dev/lab/yass
-git checkout dev
+# git checkout dev
 cd /Users/Edu/dev/lab/private-yass/the-great-refactor
 source activate yass
 ipython
@@ -17,7 +17,7 @@ from yass import preprocess
 from yass import process
 from yass import deconvolute
 
-SAMPLE = False
+SAMPLE = True
 NNET = False
 
 assert yass.__version__ == '0.4dev'
