@@ -18,7 +18,7 @@ from yass import process
 from yass import deconvolute
 
 SAMPLE = True
-NNET = False
+NNET = True
 
 assert yass.__version__ == '0.4dev'
 
