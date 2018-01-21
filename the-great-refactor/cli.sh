@@ -20,7 +20,8 @@ git pull
 pip install -e .
 python -c 'import yass; assert yass.__version__ == "0.4dev"'
 cd ~/dev/experiments
-# yass sort nnet.yaml
-yass sort threshold.yaml
+
+yass sort nnet.yaml --output_dir new-nnet/
+yass sort threshold.yaml --output_dir new-threshold/
 
 mv /ssd/data/eduardo/tmp/spike_train.npy /ssd/data/eduardo/spike_train.npy
