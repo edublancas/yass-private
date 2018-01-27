@@ -1,4 +1,3 @@
-# version 0.3
 """
 cd /Users/Edu/dev/lab/private-yass/the-great-refactor
 # conda create --name yass-stable python=3.6 -y
@@ -13,8 +12,8 @@ from yass.preprocessing import Preprocessor
 from yass.mainprocess import Mainprocessor
 from yass.deconvolute import Deconvolution
 
-SAMPLE = False
-NNET = False
+SAMPLE = True
+NNET = True
 
 assert yass.__version__ == '0.3'
 
