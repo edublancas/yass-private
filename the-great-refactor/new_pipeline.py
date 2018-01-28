@@ -9,7 +9,6 @@ ipython
 %load_ext autoreload
 %autoreload 2
 """
-
 import logging
 
 import yass
@@ -18,7 +17,7 @@ from yass import process
 from yass import deconvolute
 
 SAMPLE = False
-NNET = False
+NNET = True
 REMOTE = True
 
 assert yass.__version__ == '0.4dev'
@@ -37,6 +36,8 @@ config = config+'-remote.yaml' if REMOTE else config+'.yaml'
 
 yass.set_config(config)
 
+CONFIG = yass.read_config()
+
 # run preprocessor
 score, spike_index_clear, spike_index_collision = preprocess.run()
 
@@ -50,6 +51,7 @@ score.shape, spike_index_clear.shape, spike_index_collision.shape
 spike_train_clear.shape, templates.shape, spike_index_collision.shape
 
 # run deconvolution
-spikes = deconvolute.run(spike_train_clear, templates, spike_index_collision)
+spike_train = deconvolute.run(spike_train_clear, templates,
+                              spike_index_collision)
 
-spikes.shape
+spike_train.shape
