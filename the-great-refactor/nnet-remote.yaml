@@ -21,7 +21,7 @@ preprocess:
   dtype: float32
 
 spikes:
-  detection: threshold
+  detection: nn
   temporal_features: 3
 
 deconvolution:
