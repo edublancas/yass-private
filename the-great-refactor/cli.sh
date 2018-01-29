@@ -21,6 +21,7 @@ pip install -e .
 python -c 'import yass; assert yass.__version__ == "0.4dev"'
 cd ~/dev/experiments
 
+yass sort nnet.yaml --output_dir testing-nnet-prob/
 yass sort nnet.yaml --output_dir new-nnet/
 yass sort threshold.yaml --output_dir new-threshold/
 
