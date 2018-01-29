@@ -1,0 +1,1 @@
+yass train /ssd/data/eduardo/test-threshold/spike_train.npy train.yaml threshold.yaml
