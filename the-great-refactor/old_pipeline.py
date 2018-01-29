@@ -1,4 +1,3 @@
-# version 0.3
 """
 cd /Users/Edu/dev/lab/private-yass/the-great-refactor
 # conda create --name yass-stable python=3.6 -y
@@ -13,17 +12,22 @@ from yass.preprocessing import Preprocessor
 from yass.mainprocess import Mainprocessor
 from yass.deconvolute import Deconvolution
 
-SAMPLE = False
+SAMPLE = True
 NNET = False
+REMOTE = True
 
 assert yass.__version__ == '0.3'
 
+# set yass configuration parameters
 if SAMPLE:
-    filename = 'nnet100k.yaml' if NNET else 'threshold100k.yaml'
-    cfg = yass.Config.from_yaml(filename)
+    config = 'nnet100k' if NNET else 'threshold100k'
 else:
-    filename = 'nnet.yaml' if NNET else 'threshold.yaml'
-    cfg = yass.Config.from_yaml(filename)
+    config = 'nnet' if NNET else 'threshold'
+
+
+config = config+'-remote.yaml' if REMOTE else config+'.yaml'
+
+cfg = yass.Config.from_yaml
 
 pp = Preprocessor(cfg)
 score, spike_index_clear, spike_index_collision = pp.process()

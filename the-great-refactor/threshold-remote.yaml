@@ -1,10 +1,10 @@
 data:
-  root_folder: /users/Edu/data/yass
+  root_folder: /ssd/data/eduardo
   recordings: ej49_data1_set1.bin
   geometry: ej49_geometry1.txt
 
 resources:
-  max_memory: 40000000
+  max_memory: 1000000000
 
 recordings:
   dtype: int16
@@ -21,7 +21,7 @@ preprocess:
   dtype: float32
 
 spikes:
-  detection: nn
+  detection: threshold
   temporal_features: 3
 
 deconvolution:
