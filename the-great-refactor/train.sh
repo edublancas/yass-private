@@ -1,0 +1,1 @@
+yass train /ssd/data/eduardo/tmp/spike_train.npy train.yaml threshold-remote.yaml
