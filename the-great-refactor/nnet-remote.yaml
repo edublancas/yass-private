@@ -4,7 +4,7 @@ data:
   geometry: ej49_geometry1.txt
 
 resources:
-  max_memory: 40000000
+  max_memory: 30000000
 
 recordings:
   dtype: int16
