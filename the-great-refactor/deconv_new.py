@@ -1,11 +1,18 @@
 """
+cd ~/dev/yass
+git checkout dev
+git pull
+pip install -e .
 cd /ssd/data/eduardo/tmp
 source activate yass
 ipython
 """
 import numpy as np
+import logging
 import yass
 from yass import deconvolute
+
+logging.basicConfig(level=logging.DEBUG)
 
 assert yass.__version__ == '0.4dev'
 

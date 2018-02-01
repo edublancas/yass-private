@@ -27,12 +27,8 @@ source activate yass
 python -c 'import yass; assert yass.__version__ == "0.4dev"'
 cd ~/dev/private-yass/the-great-refactor
 
-yass sort nnet-remote.yaml --output_dir new-nnet/ --clean
-yass sort threshold-remote.yaml --output_dir new-threshold/ --clean
+yass sort nnet-remote.yaml --output_dir new-nnet-2/ --clean
+yass sort threshold-remote.yaml --output_dir new-threshold-2/ --clean
+
 # yass sort nnet100k.yaml --output_dir new-nnet-batch/
 # yass sort threshold100k.yaml --output_dir new-threshold/
-
-yass sort nnet.yaml --output_dir new-nnet/
-yass sort threshold.yaml --output_dir new-threshold/
-
-mv /ssd/data/eduardo/tmp/spike_train.npy /ssd/data/eduardo/spike_train.npy
