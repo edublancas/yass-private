@@ -24,8 +24,10 @@ git pull
 pip uninstall yass-algorithm -y
 pip install -e .
 source activate yass
-python -c 'import yass; assert yass.__version__ == "0.4dev"'
+python -c 'import yass; assert yass.__version__ == "0.6dev"'
 cd ~/dev/private-yass/the-great-refactor
+
+yass sort nnet-remote.yaml --output_dir tmp-cpu/ --clean --logger_level DEBUG
 
 yass sort nnet-remote.yaml --output_dir new-nnet-2/ --clean
 yass sort threshold-remote.yaml --output_dir new-threshold-2/ --clean
