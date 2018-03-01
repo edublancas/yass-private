@@ -1,5 +1,5 @@
 data:
-  root_folder: /ssd/data/peter/ejfull
+  root_folder: /hdd/data/peter/ejbin
   recordings: fullej.dat
   geometry: 512coords.txt
 
