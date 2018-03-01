@@ -2,7 +2,7 @@ from yass import pipeline
 from memory_profiler import profile
 import logging
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 
 @profile
