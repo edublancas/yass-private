@@ -4,12 +4,12 @@ data:
   geometry: 512coords.txt
 
 resources:
-  max_memory: 200MB
+  max_memory: 1GB
 
 recordings:
   dtype: int16
   sampling_rate: 20000
-  n_channels: 49
+  n_channels: 512
   spatial_radius: 70
   spike_size_ms: 1.5
   format: long
