@@ -1,1 +1,0 @@
-yass train /ssd/data/eduardo/new-threshold/ train.yaml
