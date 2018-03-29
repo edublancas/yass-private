@@ -1,0 +1,23 @@
+data:
+  root_folder: /Users/Edu/data/simulated
+  recordings: june_28_3A.bin
+  geometry: june_28_3A_layout.txt
+
+resources:
+  max_memory: 200MB
+
+recordings:
+  dtype: int16
+  sampling_rate: 20000
+  n_channels: 60
+  spatial_radius: 70
+  spike_size_ms: 1
+  format: long
+
+preprocess:
+  apply_filter: True
+  dtype: float32
+
+detect:
+  method: threshold
+  temporal_features: 3
