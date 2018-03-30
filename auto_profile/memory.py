@@ -17,6 +17,9 @@ To plot:
 
 mprof plot
 """
+# TODO: modify pipeline.py so you can memory profile it, add one decorator
+# per step so you can get the ticks to see where each step starts and ends
+
 from pydoc import locate
 import argparse
 import logging
@@ -39,6 +42,6 @@ if __name__ == '__main__':
     function = locate(args.function)
 
     fp=open('{}.log'.format(args.function.replace('.', '_')),'w+')
-    to_profile = profile(preprocess.run, stream=fp)
+    to_profile = profile(function, stream=fp)
     to_profile(if_file_exists='overwrite')
     fp.close()
