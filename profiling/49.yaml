@@ -20,5 +20,5 @@ preprocess:
 
 
 detect:
-  detection: nn
+  method: nn
   temporal_features: 3
