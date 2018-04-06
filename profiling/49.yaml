@@ -19,6 +19,6 @@ preprocess:
   dtype: float32
 
 
-spikes:
+detect:
   detection: nn
   temporal_features: 3
