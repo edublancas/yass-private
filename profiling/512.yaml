@@ -12,7 +12,7 @@ recordings:
   n_channels: 512
   spatial_radius: 70
   spike_size_ms: 1.5
-  format: long
+  order: samples
 
 preprocess:
   filter: True
