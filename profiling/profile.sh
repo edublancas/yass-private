@@ -1,1 +1,1 @@
-./profile $HOME/dev/private-yass/profiling/49.yaml $HOME/profile_results
+./profile $HOME/dev/private-yass/profiling/49.yaml $HOME/profile_results >> profile.log

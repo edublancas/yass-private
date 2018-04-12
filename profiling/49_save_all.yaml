@@ -1,0 +1,34 @@
+data:
+  root_folder: /ssd/data/eduardo
+  recordings: ej49_data1_set1.bin
+  geometry: ej49_geometry1.txt
+
+resources:
+  max_memory: 100MB
+
+recordings:
+  dtype: int16
+  sampling_rate: 20000
+  n_channels: 49
+  spatial_radius: 70
+  spike_size_ms: 1.5
+  order: samples
+
+preprocess:
+  if_file_exists: overwrite
+  apply_filter: True
+  dtype: float32
+
+detect:
+  if_file_exists: overwrite
+  save_results: True
+  method: nn
+  temporal_features: 3
+
+cluster:
+  if_file_exists: overwrite
+  save_results: True
+
+templates:
+  if_file_exists: overwrite
+  save_results: False
