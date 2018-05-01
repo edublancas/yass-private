@@ -1,1 +1,0 @@
-yass sort /home/eduardo/dev/private-yass/profiling/49_save_all.yaml -o save_all/
