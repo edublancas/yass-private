@@ -1,7 +1,7 @@
 data:
   root_folder: /ssd/data/eduardo
-  recordings: ej49_data1_set1.bin
-  geometry: ej49_geometry1.txt
+  recordings: fullej.dat 
+  geometry: 512coords.txt
 
 resources:
   max_memory: 1700KB
