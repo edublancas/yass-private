@@ -7,12 +7,12 @@ resources:
   max_memory: 1700KB
   multi_processing: True
   n_processors: 12 
-  n_sec_chunk: 1
+  n_sec_chunk: 10
 
 recordings:
   dtype: int16
   sampling_rate: 20000
-  n_channels: 49
+  n_channels: 512 
   spatial_radius: 70
   spike_size_ms: 1
   order: samples
