@@ -1,10 +1,10 @@
 data:
   root_folder: /ssd/data/eduardo
-  recordings: retinal_10min.bin
+  recordings: fullej.dat 
   geometry: 512coords.txt
 
 resources:
-  max_memory: 1700KB
+  max_memory: 100MB 
 
 recordings:
   dtype: int16
