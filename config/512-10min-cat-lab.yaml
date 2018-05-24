@@ -1,6 +1,6 @@
 data:
   root_folder: /ssd/data/eduardo
-  recordings: fullej.dat 
+  recordings: retinal_10min.bin
   geometry: 512coords.txt
 
 resources:
