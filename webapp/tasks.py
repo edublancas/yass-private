@@ -5,7 +5,7 @@ import mail
 
 def performance_testing(git_hash):
     # send mail that testing started
-    mail.send('Started performance testing ({}}'.format(git_hash), 'started')
+    mail.send('Started performance testing ({})'.format(git_hash), 'started')
 
     # run performance test
     command = ['bash', 'run_performance_testing.sh', git_hash]
@@ -14,10 +14,10 @@ def performance_testing(git_hash):
 
     # send mail with testing results
     if result.returncode:
-        mail.send('Failed performance testing ({}}'.format(git_hash),
+        mail.send('Failed performance testing ({})'.format(git_hash),
                   result.stdout)
     else:
-        mail.send('Sucess performance testing ({}}'.format(git_hash),
+        mail.send('Sucess performance testing ({})'.format(git_hash),
                   result.stdout)
 
 
