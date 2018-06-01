@@ -1,16 +1,16 @@
 import smtplib
+import email.utils
+from email.mime.text import MIMEText
 
 
 def send(subject, body):
     sender = 'eduardo@loki'
     receivers = ['fkq8@blancas.io']
 
-    message = """From: From Person <eduardo@loki>
-    To: To Person <fkq8@blancas.io>
-    Subject: {}
-
-    {}
-    """.format(subject, body)
+    msg = MIMEText(body)
+    msg['To'] = email.utils.formataddr(('Eduardo', 'fkq8@blancas.io'))
+    msg['From'] = email.utils.formataddr(('eduado@loki', 'eduardo@loki'))
+    msg['Subject'] = subject
 
     smtp_obj = smtplib.SMTP('localhost')
-    smtp_obj.sendmail(sender, receivers, message)
+    smtp_obj.sendmail(sender, receivers, msg.as_string())
