@@ -1,16 +1,16 @@
 import smtplib
 
 
-def send():
+def send(subject, body):
     sender = 'eduardo@loki'
     receivers = ['fkq8@blancas.io']
 
     message = """From: From Person <eduardo@loki>
     To: To Person <fkq8@blancas.io>
-    Subject: Peformance test done
+    Subject: {}
 
-    Performance testing finished running
-    """
+    {}
+    """.format(subject, body)
 
     smtp_obj = smtplib.SMTP('localhost')
     smtp_obj.sendmail(sender, receivers, message)
