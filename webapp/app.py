@@ -16,5 +16,5 @@ app = create_app()
 
 @app.route('/yass/<git_hash>')
 def hello_world(git_hash):
-    job = app.task_queue.enqueue('tasks.performance_testing', 'testing')
+    job = app.task_queue.enqueue('tasks.performance_testing', git_hash)
     return 'Testing yass@{}, job with id {}'.format(git_hash, job.get_id())
