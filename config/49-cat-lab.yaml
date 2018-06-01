@@ -4,10 +4,10 @@ data:
   geometry: ej49_geometry1.txt
 
 resources:
-  max_memory: 1700KB
+  max_memory: 100MB
   multi_processing: True
   n_processors: 12 
-  n_sec_chunk: 1
+  n_sec_chunk: 5 
 
 recordings:
   dtype: int16
