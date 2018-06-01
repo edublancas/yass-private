@@ -4,4 +4,4 @@ sudo apt install redis-server
 redis-server
 
 # start rq
-rq worker  --url redis://localhost:6379 microblog-tasks
+rq worker  --url redis://localhost:6379 performance-testing

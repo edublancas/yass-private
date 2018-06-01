@@ -1,4 +1,3 @@
-import time
 from subprocess import PIPE, run
 import mail
 
@@ -19,11 +18,3 @@ def performance_testing(git_hash):
     else:
         mail.send('Sucess performance testing ({})'.format(git_hash),
                   result.stdout)
-
-
-def example(seconds):
-    print('Starting task')
-    for i in range(seconds):
-        print(i)
-        time.sleep(1)
-    print('Task completed')
