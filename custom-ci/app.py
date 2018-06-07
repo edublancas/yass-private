@@ -1,3 +1,7 @@
+"""
+Flask application to run tests
+"""
+
 from redis import Redis
 import rq
 from flask import Flask
@@ -15,6 +19,7 @@ app = create_app()
 
 
 @app.route('/yass/<git_hash>')
-def hello_world(git_hash):
+def run_tests(git_hash):
+    # send job to task queue
     job = app.task_queue.enqueue('tasks.performance_testing', git_hash)
     return 'Testing yass@{}, job with id {}'.format(git_hash, job.get_id())

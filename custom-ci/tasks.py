@@ -1,8 +1,14 @@
+"""
+Tasks
+"""
+
 from subprocess import PIPE, run
 import mail
 
 
 def performance_testing(git_hash):
+    """Run performance testing on a given git hash
+    """
     # send mail that testing started
     mail.send('Started performance testing ({})'.format(git_hash), 'started')
 
