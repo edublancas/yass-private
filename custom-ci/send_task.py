@@ -1,3 +1,6 @@
+"""
+Example for sending a task to the Queue
+"""
 from redis import Redis
 import rq
 
