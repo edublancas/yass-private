@@ -11,6 +11,10 @@ sudo apt install redis-server
 pip install -r requirements.txt
 ```
 
+```shell
+# start services
+```
+
 ## References
 
 * https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xxii-background-jobs
