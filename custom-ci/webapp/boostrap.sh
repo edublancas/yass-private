@@ -1,5 +1,3 @@
-sudo apt install redis-server
-
 # start redis
 redis-server
 

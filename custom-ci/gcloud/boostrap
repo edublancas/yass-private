@@ -2,12 +2,12 @@
 # Install software in GPU instance
 # GPU instances docs https://cloud.google.com/compute/docs/gpus/add-gpus#create-new-gpu-instance
 
-# gcloud compute scp ./libcudnn7_7.1.4.18-1+cuda9.0_ppc64el.deb \
+# gcloud compute scp ./libcudnn7_7.1.4.18-1+cuda9.0_amd64.deb \
 #     yass-machine:~ --zone us-east1-c
 
 # libcudnn
-sudo dpkg -i libcudnn7_7.1.4.18-1+cuda9.0_ppc64el.deb
-rm -f libcudnn7_7.1.4.18-1+cuda9.0_ppc64el.deb
+sudo dpkg -i libcudnn7_7.1.4.18-1+cuda9.0_amd64.deb
+rm -f libcudnn7_7.1.4.18-1+cuda9.0_amd64.deb
  
 cd $HOME
 
