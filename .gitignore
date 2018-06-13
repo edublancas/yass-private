@@ -1,5 +1,6 @@
 *.dat
 *.lprof
+*.deb
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
