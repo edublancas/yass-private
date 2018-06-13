@@ -4,7 +4,7 @@
 # startup script: https://cloud.google.com/compute/docs/startupscript#rerunthescript
 # --preemptible \
 
-gcloud compute instances create gpu-instance-3 \
+gcloud compute instances create yass-machine \
     --machine-type n1-standard-2 \
     --zone us-east1-c \
     --accelerator type=nvidia-tesla-k80 \
