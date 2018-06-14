@@ -32,17 +32,10 @@ model.add(Conv2D(filters=[1, 1, K1, K2], kernel_size=(3, 3),
 model.add(Conv2D(filters=[1, n_channels, K2, 1], kernel_size=(3, 3),
                  padding='valid', activation='relu', use_bias=True))
 
-model.compile(loss='categorical_crossentropy',
-              optimizer='rmsprop',
+model.compile(loss='binary_crossentropy',
+              optimizer='adam',
               metrics=['accuracy'])
 
-# Generate dummy training data
-x_train = np.random.random((batch_size * 10, timesteps, data_dim))
-y_train = np.random.random((batch_size * 10, num_classes))
-
-# Generate dummy validation data
-x_val = np.random.random((batch_size * 3, timesteps, data_dim))
-y_val = np.random.random((batch_size * 3, num_classes))
 
 model.fit(x_train, y_train,
           batch_size=batch_size, epochs=5, shuffle=False,
