@@ -4,22 +4,20 @@ https://keras.io/getting-started/sequential-model-guide/
 
 from keras.models import Sequential
 from keras.layers import LSTM, Dense, Conv2D, Flatten
-import numpy as np
-
 
 def default_model(x_train, input_shape):
     n_data, window_size, n_channels, _ = x_train.shape
 
     model = Sequential()
 
-    model.add(Conv2D(16, kernel_size=(3, 3),
+    model.add(Conv2D(16, kernel_size=(window_size, 1),
                      padding='valid', activation='relu', use_bias=True,
                      input_shape=input_shape, data_format="channels_last"))
 
-    model.add(Conv2D(16, kernel_size=(3, 3),
+    model.add(Conv2D(16, kernel_size=(1, 1),
                      padding='same', activation='relu', use_bias=True))
 
-    model.add(Conv2D(16, kernel_size=(3, 3),
+    model.add(Conv2D(1, kernel_size=(1, n_channels),
                      padding='valid', activation='relu', use_bias=True))
     
     model.add(Flatten())
