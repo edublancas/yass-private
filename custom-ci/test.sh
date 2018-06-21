@@ -4,7 +4,7 @@
 source activate yass
 
 # move to yass home
-cd /home/eduardo/dev/yass
+cd $HOME/dev/yass
 
 # check commit hash, pull and checkouts
 git checkout $1
