@@ -21,7 +21,8 @@ pip install -r requirements.txt
 # run redis
 redis-server --daemonize yes
 
-# start rq
+# start rq from custom-ci folder
+cd PATH/TO/CUSTOM-CI
 nohup rq worker  --url redis://localhost:6379 performance-testing& &> /dev/null
 
 # start flask app
