@@ -28,6 +28,28 @@ nohup rq worker  --url redis://localhost:6379 performance-testing& &> /dev/null
 gunicorn app:app --bind 0.0.0.0:5000 --daemon
 ```
 
+## Sending tasks
+
+By making a request to the server: `IP:PORT/yass/[git_hash]`
+
+Or direcly using Python
+
+```python
+"""
+Example for sending a task to the Queue
+"""
+from redis import Redis
+import rq
+
+queue = rq.Queue('performance-testing',
+                 connection=Redis.from_url('redis://localhost:6379'),
+                 default_timeout=3600)
+
+job = queue.enqueue('tasks.performance_testing', 'testing')
+
+job.get_id()
+```
+
 ## References
 
 * https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xxii-background-jobs
