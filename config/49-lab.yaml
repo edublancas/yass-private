@@ -4,7 +4,8 @@ data:
   geometry: ej49_geometry1.txt
 
 resources:
-  max_memory: 10MB
+  max_memory: 500MB
+  max_memory_gpu: 1MB
 
 recordings:
   dtype: int16
@@ -19,5 +20,5 @@ preprocess:
   dtype: float32
 
 detect:
-  method: threshold
+  method: nn
   temporal_features: 3
