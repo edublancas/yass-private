@@ -1,3 +1,5 @@
+*.pdf
+*.csv
 *.mat
 *.dat
 *.lprof
