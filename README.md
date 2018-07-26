@@ -1,3 +1,3 @@
 # yass-private
 
-Private code for YASS development.
+YASS extra stuff.
