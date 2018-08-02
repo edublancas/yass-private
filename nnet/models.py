@@ -10,26 +10,25 @@ def default_model(x_train, input_shape):
 
     model = Sequential()
 
-    model.add(Conv2D(16, kernel_size=(window_size, 1),
+    model.add(Conv2D(32, kernel_size=(window_size, 1),
                      padding='valid', activation='relu', use_bias=True,
                      input_shape=input_shape, data_format="channels_last"))
 
-    model.add(Conv2D(16, kernel_size=(1, 1),
-                     padding='same', activation='relu', use_bias=True))
+    model.add(Conv2D(32, kernel_size=(1, 1),
+                     padding='same', activation='relu', use_bias=True,
+                     data_format="channels_last"))
 
     model.add(Conv2D(1, kernel_size=(1, n_channels),
-                     padding='valid', activation='relu', use_bias=True))
+                     padding='valid', activation='linear', use_bias=True,
+                     data_format="channels_last"))
     
     model.add(Flatten())
-    model.add(Dense(1, activation='softmax'))
+    model.add(Dense(1, activation='sigmoid'))
+    
+    model.summary()
 
     model.compile(loss='binary_crossentropy',
                   optimizer='adam',
                   metrics=['accuracy'])
     
     return model
-
-
-# model.fit(x_train, y_train,
-#           batch_size=batch_size, epochs=5, shuffle=False,
-#           validation_data=(x_val, y_val))
