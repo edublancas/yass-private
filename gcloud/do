@@ -1,0 +1,1 @@
+gcloud compute instances $1 yass-machine
