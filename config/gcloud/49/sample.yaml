@@ -1,10 +1,10 @@
 data:
-  root_folder: /home/Edu/data
-  recordings: ej49_data1_set1.bin
-  geometry: ej49_geometry1.txt
+  root_folder: /home/Edu/data/sample-data/
+  recordings: retinal.bin
+  geometry: retinal_geom.txt
 
 resources:
-  max_memory: 500MB
+  max_memory: 50MB
   max_memory_gpu: 10MB
 
 recordings:
