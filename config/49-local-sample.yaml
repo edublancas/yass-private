@@ -1,7 +1,7 @@
 data:
-  root_folder: /Users/Edu/data/yass
-  recordings: ej49_data1_set1.bin
-  geometry: ej49_geometry1.txt
+  root_folder: /Users/Edu/data/sample-data
+  recordings: retinal.bin
+  geometry: retinal_geom.txt
 
 resources:
   max_memory: 100MB
