@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 # ssh to gpu instance
-gcloud compute --project "neural-trojan" \
-    ssh --zone "us-east1-c" "yass-machine" \
+MACHINE=spike-sorter
+
+ 
+gcloud compute --project "ml-machines" \
+    ssh --zone "us-east1-c" $MACHINE \
     -- -L 8888:localhost:8888
