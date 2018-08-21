@@ -2,38 +2,74 @@
 # Install software in GPU instance
 # GPU instances docs https://cloud.google.com/compute/docs/gpus/add-gpus#create-new-gpu-instance
 
-# gcloud compute scp ./libcudnn7_7.1.4.18-1+cuda9.0_amd64.deb \
-#     yass-machine:~ --zone us-east1-c
+PROJECT=ml-machines
+MACHINE=spike-sorter 
 
-# libcudnn
-sudo dpkg -i libcudnn7_7.1.4.18-1+cuda9.0_amd64.deb
-rm -f libcudnn7_7.1.4.18-1+cuda9.0_amd64.deb
- 
-cd $HOME
+# upload libcudnn to the machine
+gcloud compute scp ./libcudnn7_7.1.4.18-1+cuda9.0_amd64.deb \
+    $MACHINE:~ --zone us-east1-c
 
-# essentials
+# ssh to gpu instance
+gcloud compute --project $PROJECT ssh --zone "us-east1-c" $MACHINE
+
+# check gpu installation
+nvidia-smi
+
+# if errors, check log /var/log/syslog
+
+ # linux essentials
 sudo apt-get update
 sudo apt-get -y upgrade
-sudo apt-get -y install bzip2 git htop
+sudo apt-get -y install bzip2 git htop tree gcc
 
-# miniconda
-wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
-source ~/.bashrc
-
-# dotfiles
+# install dotfiles
 mkdir dev && cd dev
 git clone https://github.com/edublancas/dotfiles
-python dotfiles/setup/make_symlinks
+./dotfiles/setup/make_symlinks
 source ~/.bashrc
+
+# install miniconda
+cd $HOME
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+sh Miniconda3-latest-Linux-x86_64.sh -b
+rm -f Miniconda3-latest-Linux-x86_64.sh
+source ~/.bashrc
+
+# create conda environment
+conda create --name yass python=3.6 --yes
+source activate yass
+pip install --upgrade pip
+
+# install libcudnn
+sudo dpkg --install libcudnn7_7.1.4.18-1+cuda9.0_amd64.deb
+rm -f libcudnn7_7.1.4.18-1+cuda9.0_amd64.deb
 
 # yass
 git clone https://github.com/paninski-lab/yass
 cd yass
 pip install -r requirements.txt
-
-pip install --upgrade pip
 pip install -e .
 
+# private-yass
+cd $HOME
+git clone https://github.com/edublancas/yass-private
+
 # tensorflow
-pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.8.0-cp36-cp36m-linux_x86_64.whl
+pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.10.0-cp36-cp36m-linux_x86_64.whl
+
+
+# check tensorflow setup
+PROGRAM="
+import tensorflow as tf
+
+with tf.device('/gpu:0'):
+    a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
+    b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
+    c = tf.matmul(a, b)
+
+with tf.Session() as sess:
+    print (sess.run(c))
+"
+
+python -c "$PROGRAM"
+

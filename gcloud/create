@@ -1,16 +1,29 @@
 #!/usr/bin/env bash
-# create a GPU instance on google cloud
+# Create a GPU instance on google cloud
+
 # docs: https://cloud.google.com/compute/docs/gpus/add-gpus#create-new-gpu-instance
 # startup script: https://cloud.google.com/compute/docs/startupscript#rerunthescript
-# --preemptible \
+# machine types: https://cloud.google.com/compute/docs/machine-types#standard_machine_types
 
-gcloud compute instances create yass-machine \
-    --machine-type n1-standard-2 \
+# tensorflow/CUDA/libcudnn compatibility table
+# https://www.tensorflow.org/install/install_sources#tested_source_configurations
+
+# https://cloud.google.com/compute/docs/instances/preemptible
+# Preemtible instances are much cheaper --preemptible \
+
+
+NAME=spike-sorter
+TYPE=n1-standard-4
+DISK=100GB
+
+gcloud compute instances create $NAME \
+    --machine-type $TYPE \
     --zone us-east1-c \
     --accelerator type=nvidia-tesla-k80 \
     --image-family ubuntu-1604-lts --image-project ubuntu-os-cloud \
     --maintenance-policy TERMINATE --restart-on-failure \
-    --boot-disk-size 100GB \
+    --boot-disk-size $DISK \
+    --preemptible \
     --metadata startup-script='#!/bin/bash
     echo "Checking for CUDA and installing."
     # Check for CUDA and try to install.

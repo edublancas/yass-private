@@ -1,1 +1,2 @@
-gcloud compute instances $1 yass-machine --zone "us-east1-c"
+MACHINE=spike-sorter
+gcloud compute instances $1 $MACHINE --zone "us-east1-c"
