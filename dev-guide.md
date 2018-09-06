@@ -20,6 +20,8 @@
 results = cluster.run(method=fancy_new_method)
 ```
 
+* Do not save files that are loaded in other steps of the pipeline, this breaks encapsulation (avoid file not found errors), it is ok to save files that are oly used within the step. If you need to share data with other steps, use the metadata (?)
+
 ## 4. git branches
 
 * Master is for well-tested code (merges via pull request)
