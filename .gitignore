@@ -8,6 +8,7 @@
 *.rdb
 **/models/**
 data/**
+denoiser/mlruns/
 
 
 # Byte-compiled / optimized / DLL files
