@@ -4,7 +4,7 @@ data:
   geometry: ej49_geometry1.txt
 
 resources:
-  max_memory: 50MB
+  max_memory: 20MB
   max_memory_gpu: 500KB
 
 recordings:
