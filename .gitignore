@@ -9,6 +9,7 @@
 **/models/**
 data/**
 denoiser/mlruns/
+denoiser/runs/
 
 
 # Byte-compiled / optimized / DLL files
