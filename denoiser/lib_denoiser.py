@@ -30,7 +30,7 @@ class SpikeIndex:
             ptps = templates_util.ptps(spikes)
             return times[ptps <= max_ptp]
     
-    def get_times():
+    def get_times(self):
         return self.arr[:, 0]
     
     @property
@@ -77,17 +77,17 @@ class SpikeIndex:
  
 
 # FIXME: remove duplicated logic
-def read_waveforms(rec, idxs, waveform_length, random_shift=False, add_offset=False):    
+def read_waveforms(rec, times, waveform_length, random_shift=False, add_offset=False):    
     """Read waveforms from rec using an array of spike times
     """
     n_obs, n_channels = rec.shape
 
-    out = np.empty((len(idxs), waveform_length, n_channels))
-    valid_idx = np.ones(len(idxs))
+    out = np.empty((len(times), waveform_length, n_channels))
+    valid_time = np.ones(len(times))
 
     half = int((waveform_length - 1)/2)
 
-    for i, idx in enumerate(idxs):
+    for i, time in enumerate(times):
         if add_offset:
             offset = -20
         else:
@@ -96,12 +96,12 @@ def read_waveforms(rec, idxs, waveform_length, random_shift=False, add_offset=Fa
         if random_shift:
             offset += np.random.randint(-20, 20)
         
-        s = slice(idx - half + offset, idx + half + 1 + offset)
+        s = slice(time - half + offset, time + half + 1 + offset)
     
         if s.start >= 0 and s.stop <= n_obs:
             out[i] = rec[s]
         else:
-            valid_idx[i] = 0
-            print('invalid idx')
+            valid_time[i] = 0
+            print('invalid time')
 
-    return out[valid_idx.astype(bool)]
+    return out[valid_time.astype(bool)]
