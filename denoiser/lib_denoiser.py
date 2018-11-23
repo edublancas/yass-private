@@ -94,7 +94,7 @@ def read_waveforms(rec, times, waveform_length, random_shift=False, add_offset=F
             offset = 0
     
         if random_shift:
-            offset += np.random.randint(-20, 20)
+            offset += np.random.randint(-3, 3)
         
         s = slice(time - half + offset, time + half + 1 + offset)
     
