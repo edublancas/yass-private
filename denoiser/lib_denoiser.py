@@ -46,32 +46,33 @@ class SpikeIndex:
         return {ch: count for ch, count in zip(chs, counts)}
     
     def read_waveforms_from_channel(self, rec, channel, waveform_length=51,
-                                    random_shift=True,
-                                    only_neighbors=True, add_offset=False):
+                                    random_shift=False,
+                                    only_neighbors=True):
         """Read waveforms from rec using an array of spike times
         """
-        _, n_channels = rec.shape
+        n_obs, n_channels = rec.shape
     
-        idxs = self.get_times_from_channel(channel)
+        if channel is not None:
+            idxs = self.get_times_from_channel(channel)
+#             print(idxs, idxs.shape)
+        else:
+            idxs = self.get_times()
+#             print(idxs, idxs.shape)
     
-        out = np.empty((len(idxs), waveform_length, n_channels))
+        out = np.empty((len(idxs), waveform_length, 7 if only_neighbors else n_channels))
         half = int((waveform_length - 1)/2)
     
         for i, idx in enumerate(idxs):
-            if add_offset:
-                offset = -20
-            else:
-                offset = 0
         
             if random_shift:
-                offset += np.random.randint(-20, 20)
+                offset = np.random.randint(-half, half)
+            else:
+                offset = 0
 
-            out[i] = rec[idx-half + offset:idx+half+1 + offset]
-        
-        if only_neighbors:
-            tp = TemplatesProcessor(out)
-            out = tp.crop_spatially(self.neighbors, self.geometry,
-                                    inplace=False).values
+            if only_neighbors:
+                out[i, :] = rec[idx-half + offset:idx+half+1 + offset, self.channel_index[channel]]
+            else:
+                out[i, :] = rec[idx-half + offset:idx+half+1 + offset]
 
         return out
  
