@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ssh to gpu instance
-MACHINE=spike-sorter
+MACHINE=Edu@spike-sorter
 
  
 gcloud compute --project "ml-machines" \
