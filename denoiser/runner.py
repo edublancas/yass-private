@@ -1,4 +1,11 @@
 """
+gcloud compute scp spike-sorter:/tmp/out \
+    ~/Desktop/out/ --zone us-east1-c --recurse
+
+
+gcloud compute scp spike-sorter:/tmp/denoised.bin\
+    ~/Desktop/denoised.bin --zone us-east1-c --recurse
+
 gcloud compute scp spike-sorter:~/private-yass/denoiser/runs \
     ~/Desktop/runs --zone us-east1-c --recurse
 """
